@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "Kalendarz",
+    "slug": "Kalendarz",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "Kalendarz"
+}
