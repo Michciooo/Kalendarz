@@ -35,7 +35,21 @@ export default function App() {
         renderItem={renderWydarzenia}
         renderEmptyData={renderPustaData}
       />
-
+     <CalendarList /*Calendar*/
+     current='2023-01-01'
+     minDate='2022-01-01'
+     maxDate='2029-12-31'
+     onDayPress={selecteddatehandler}
+      markedDates={
+        {
+        [selecteddate]:{selected:true,selectedColor:'green'},
+        '2023-04-15':{marked:true},
+        '2023-04-10':{marked:true , dotColor:'red'},
+        '2023-04-18':{selected:true , selectedColor:'red'},
+        }
+      }
+    
+     />
 
     </View>
   );
