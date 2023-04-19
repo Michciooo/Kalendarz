@@ -1,21 +1,42 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
+import { Calendar, CalendarList,Agenda } from 'react-native-calendars';
+import { useState } from 'react';
 export default function App() {
+  const [selecteddate,setselecteddate]=useState('')
+  function selecteddatehandler(day){
+    setselecteddate(day.dateString)
+  }
+  const wydarzenia = {
+    '2023-04-21':[{opis:'opis' , czas:'11:00'}],
+    '2023-04-18':[{opis:'opis',czas:'22:00'}],
+  }
+  function renderWydarzenia(wyd){
+    return (
+      <View>
+        <Text>{wyd.czas}</Text>
+        <Text>{wyd.opis}</Text>
+      </View>
+    )
+    }
+
+  function renderPustaData(wyd){
+    return (
+      <View>
+        <Text>Pusto</Text>
+      </View>
+    )
+  }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View>
+      <Agenda style={{width:500}}
+        items={wydarzenia}
+        renderItem={renderWydarzenia}
+        renderEmptyData={renderPustaData}
+      />
+
+
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
